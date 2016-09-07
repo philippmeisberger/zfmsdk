@@ -22,6 +22,7 @@ begin
 
       if ZfmGenImg() then
       begin
+        ZfmImage2Tz(CharBuffer1);
         ZfmSearch(CharBuffer1, Index, Accuracy);
 
         if (Index <> -1) then
