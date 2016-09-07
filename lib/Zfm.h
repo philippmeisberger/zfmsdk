@@ -6,6 +6,12 @@
 //                                                                         //
 // *********************************************************************** //
 
+#if defined ZFM_EXPORT
+#define ZFMSDK __declspec(dllexport)
+#else
+#define ZFMSDK __declspec(dllimport)
+#endif
+
 /// <summary>
 ///   Possible ZFM CharBuffers
 /// </summary>
@@ -34,12 +40,12 @@ typedef enum
 /// <remarks>
 ///   Only call ONCE!
 /// </remarks>
-void ZfmInitialize(unsigned long address = 0xFFFFFFFF, unsigned long password = 0);
+ZFMSDK void ZfmInitialize(unsigned long address = 0xFFFFFFFF, unsigned long password = 0);
 
 /// <summary>
 ///   Unitializes the ZFM and frees up used resources.
 /// </summary>
-void ZfmUnInitialize();
+ZFMSDK void ZfmUnInitialize();
 
 /// <summary>
 ///   Tries to establish the connection to the fingerprint sensor. If
@@ -55,12 +61,12 @@ void ZfmUnInitialize();
 ///   <c>EZfmException</c> when the password is wrong.
 ///   <c>ESerialException</c> when the port was not found.
 /// </exception>
-void ZfmConnect(const wchar_t *port, unsigned long baudrate = 57600);
+ZFMSDK void ZfmConnect(const wchar_t *port, unsigned long baudrate = 57600);
 
 /// <summary>
 ///   Clears the complete template database.
 /// </summary>
-void ZfmEmpty();
+ZFMSDK void ZfmEmpty();
 
 /// <summary>
 ///   Compares the finger characteristics of <c>CharBuffer1</c> with
@@ -69,7 +75,7 @@ void ZfmEmpty();
 /// <returns>
 ///   The accuracy score. If the finger does not match <c>0</c> is returned.
 /// </returns>
-unsigned short ZfmMatch();
+ZFMSDK unsigned short ZfmMatch();
 
 /// <summary>
 ///   Converts the image in <c>ImageBuffer</c> to finger characteristics and
@@ -78,14 +84,14 @@ unsigned short ZfmMatch();
 /// <param name="charBuffer">
 ///   The used <c>CharBuffer</c>.
 /// </param>
-void ZfmImage2Tz(ZfmCharBuffer charBuffer);
+ZFMSDK void ZfmImage2Tz(ZfmCharBuffer charBuffer);
 
 /// <summary>
 ///   Combines the characteristics which are stored in <c>CharBuffer1</c> and
 ///   <c>CharBuffer2</c> to a template. The created template will be stored again
 ///   in <c>CharBuffer1</c> and <c>CharBuffer2</c> as the same.
 /// </summary>
-void ZfmRegModel();
+ZFMSDK void ZfmRegModel();
 
 /// <summary>
 ///   Deletes a range of templates from the fingerprint database.
@@ -96,7 +102,7 @@ void ZfmRegModel();
 /// <param name="count">
 ///   The number of templates to be deleted.
 /// </param>
-void ZfmDeletChar(unsigned short startIndex, unsigned short count = 1);
+ZFMSDK void ZfmDeletChar(unsigned short startIndex, unsigned short count = 1);
 
 /// <summary>
 ///   Gets the number of stored templates.
@@ -104,7 +110,7 @@ void ZfmDeletChar(unsigned short startIndex, unsigned short count = 1);
 /// <returns>
 ///   The count.
 /// </returns>
-unsigned short ZfmTemplateNum();
+ZFMSDK unsigned short ZfmTemplateNum();
 
 /// <summary>
 ///   Generates a random 32-bit decimal number.
@@ -112,7 +118,7 @@ unsigned short ZfmTemplateNum();
 /// <returns>
 ///   The number.
 /// </returns>
-unsigned long ZfmGetRandomCode();
+ZFMSDK unsigned long ZfmGetRandomCode();
 
 /// <summary>
 ///   Gets a list of the template positions with usage indicator.
@@ -130,7 +136,7 @@ unsigned long ZfmGetRandomCode();
 /// <returns>
 ///   <c>True</c> if the list was successfully downloaded or <c>False</c> otherwise.
 /// </returns>
-bool ZfmReadConList(unsigned char page, unsigned char *list, _InOut_ unsigned long listLength);
+ZFMSDK bool ZfmReadConList(unsigned char page, unsigned char *list, unsigned long *listLength);
 
 /// <summary>
 ///   Loads an existing template specified by position number to specified
@@ -142,7 +148,7 @@ bool ZfmReadConList(unsigned char page, unsigned char *list, _InOut_ unsigned lo
 /// <param name="charBuffer">
 ///   The used <c>CharBuffer</c>.
 /// </param>
-void ZfmLoadChar(unsigned short index, ZfmCharBuffer charBuffer);
+ZFMSDK void ZfmLoadChar(unsigned short index, ZfmCharBuffer charBuffer);
 
 /// <summary>
 ///   Reads the image of a finger and stores it in <c>ImageBuffer</c>.
@@ -155,7 +161,7 @@ void ZfmLoadChar(unsigned short index, ZfmCharBuffer charBuffer);
 ///   This is the main method of the sensor. If the read image should be
 ///   stored on the sensor the method <see cref="ZfmRegModel"/> must be called.
 /// </remarks>
-bool ZfmGenImg();
+ZFMSDK bool ZfmGenImg();
 
 /// <summary>
 ///   Searches the finger characteristics from given <c>CharBuffer</c> in
@@ -171,8 +177,7 @@ bool ZfmGenImg();
 ///   Contains the corresponding accuracy score of the found template. <c>0</c>
 ///   if not found.
 /// </param>
-void ZfmSearch(ZfmCharBuffer charBuffer, _Out_ short templateIndex,
-  _Out_ unsigned short accuracy);
+ZFMSDK void ZfmSearch(ZfmCharBuffer charBuffer, short *templateIndex, unsigned short *accuracy);
 
 /// <summary>
 ///   Stores a template from the specified <c>CharBuffer</c> at the given
@@ -187,7 +192,7 @@ void ZfmSearch(ZfmCharBuffer charBuffer, _Out_ short templateIndex,
 /// <remarks>
 ///   If a template already exists at the given index it will be overwritten!
 /// </remarks>
-void ZfmStore(unsigned short index, ZfmCharBuffer charBuffer);
+ZFMSDK void ZfmStore(unsigned short index, ZfmCharBuffer charBuffer);
 
 /// <summary>
 ///   Uploads finger characteristics to specified <c>CharBuffer</c>.
@@ -204,8 +209,7 @@ void ZfmStore(unsigned short index, ZfmCharBuffer charBuffer);
 /// <returns>
 ///   <c>True</c> if the upload was successful or <c>False</c> otherwise.
 /// </returns>
-bool ZfmDownChar(unsigned char destination, unsigned char *characteristics,
-  unsigned long characteristicsLength);
+ZFMSDK bool ZfmDownChar(unsigned char destination, unsigned char *characteristics, unsigned long characteristicsLength);
 
 /// <summary>
 ///   Downloads the finger characteristics from specified <c>CharBuffer</c>.
@@ -225,8 +229,7 @@ bool ZfmDownChar(unsigned char destination, unsigned char *characteristics,
 /// <returns>
 ///   <c>True</c> if the download was successful or <c>False</c> otherwise.
 /// </returns>
-bool ZfmUpChar(ZfmCharBuffer charBuffer, unsigned char *characteristics,
-  _Out_ unsigned long characteristicsLength);
+ZFMSDK bool ZfmUpChar(ZfmCharBuffer charBuffer, unsigned char *characteristics, unsigned long *characteristicsLength);
 
 /// <summary>
 ///   Uploads a fingerprint image to <c>ImageBuffer</c>.
@@ -237,7 +240,7 @@ bool ZfmUpChar(ZfmCharBuffer charBuffer, unsigned char *characteristics,
 /// <returns>
 ///   <c>True</c> if the upload was not canceled or <c>False</c> otherwise.
 /// </returns>
-bool ZfmDownImage(const wchar_t *fileName);
+ZFMSDK bool ZfmDownImage(const wchar_t *fileName);
 
 /// <summary>
 ///   Downloads the image of a finger in <c>ImageBuffer</c> to host computer
@@ -249,7 +252,7 @@ bool ZfmDownImage(const wchar_t *fileName);
 /// <returns>
 ///   <c>True</c> if the download was successful or <c>False</c> otherwise.
 /// </returns>
-bool ZfmUpImage(const wchar_t *fileName);
+ZFMSDK bool ZfmUpImage(const wchar_t *fileName);
 
 /// <summary>
 ///   Reads data from a given ZFM notepad page.
@@ -270,7 +273,7 @@ bool ZfmUpImage(const wchar_t *fileName);
 /// <returns>
 ///   <c>True</c> if the notepad was successful read or <c>False</c> otherwise.
 /// </returns>
-bool ZfmReadNotepad(unsigned char page, unsigned char *data, _InOut_ unsigned char dataLength);
+ZFMSDK bool ZfmReadNotepad(unsigned char page, unsigned char *data, unsigned char *dataLength);
 
 /// <summary>
 ///   Writes specified data to a given ZFM notepad page.
@@ -288,7 +291,7 @@ bool ZfmReadNotepad(unsigned char page, unsigned char *data, _InOut_ unsigned ch
 /// <returns>
 ///   <c>True</c> if the notepad was successful written or <c>False</c> otherwise.
 /// </returns>
-bool ZfmWriteNotepad(unsigned char page, unsigned char *data, unsigned char dataLength);
+ZFMSDK bool ZfmWriteNotepad(unsigned char page, unsigned char *data, unsigned char dataLength);
 
 /// <summary>
 ///   Verifies password of the fingerprint sensor.
@@ -296,17 +299,17 @@ bool ZfmWriteNotepad(unsigned char page, unsigned char *data, unsigned char data
 /// <returns>
 ///   <c>True</c> if the sensor password matches or <c>False</c> otherwise.
 /// </returns>
-bool ZfmVfyPwd();
+ZFMSDK bool ZfmVfyPwd();
 
 /// <summary>
 ///   Sets the sensor password.
 /// </summary>
-void ZfmSetAddr(unsigned long newAddress);
+ZFMSDK void ZfmSetAddr(unsigned long newAddress);
 
 /// <summary>
 ///   Sets the sensor address.
 /// </summary>
-void ZfmSetPwd(unsigned long newPassword);
+ZFMSDK void ZfmSetPwd(unsigned long newPassword);
 
 /// <summary>
 ///   Gets the last error code.
@@ -314,4 +317,4 @@ void ZfmSetPwd(unsigned long newPassword);
 /// <returns>
 ///   The last error.
 /// </returns>
-unsigned char ZfmGetLastError();
+ZFMSDK unsigned char ZfmGetLastError();
