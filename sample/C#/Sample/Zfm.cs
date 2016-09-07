@@ -42,7 +42,7 @@ namespace ZfmSdk
         ///   Only call ONCE!
         /// </remarks>
         [DllImport("Zfm.dll", EntryPoint = "ZfmInitialize", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Initialize(ulong address = 0xFFFFFFFF, ulong password = 0);
+        public static extern void Initialize(uint address = 0xFFFFFFFF, uint password = 0);
 
         /// <summary>
         ///   Unitializes the ZFM and frees up used resources.
@@ -65,7 +65,7 @@ namespace ZfmSdk
         ///   <c>ESerialException</c> when the port was not found.
         /// </exception>
         [DllImport("Zfm.dll", EntryPoint = "ZfmConnect", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Connect([MarshalAs(UnmanagedType.LPWStr)]string port, ulong baudrate = 57600);
+        public static extern void Connect([MarshalAs(UnmanagedType.LPWStr)]string port, uint baudrate = 57600);
 
         /// <summary>
         ///   Clears the complete template database.
@@ -129,7 +129,7 @@ namespace ZfmSdk
         ///   The number.
         /// </returns>
         [DllImport("Zfm.dll", EntryPoint = "ZfmGetRandomCode", CallingConvention = CallingConvention.Cdecl)]
-        public static extern ulong GetRandomCode();
+        public static extern uint GetRandomCode();
 
         /// <summary>
         ///   Gets a list of the template positions with usage indicator.
@@ -148,7 +148,7 @@ namespace ZfmSdk
         ///   <c>True</c> if the list was successfully downloaded or <c>False</c> otherwise.
         /// </returns>
         [DllImport("Zfm.dll", EntryPoint = "ZfmReadConList", CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool ReadConList(byte page, byte[] list, ref ulong listLength);
+        public static extern bool ReadConList(byte page, byte[] list, ref uint listLength);
 
         /// <summary>
         ///   Loads an existing template specified by position number to specified
@@ -226,7 +226,7 @@ namespace ZfmSdk
         ///   <c>True</c> if the upload was successful or <c>False</c> otherwise.
         /// </returns>
         [DllImport("Zfm.dll", EntryPoint = "ZfmDownChar", CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool DownChar(byte destination, byte[] characteristics, ulong characteristicsLength);
+        public static extern bool DownChar(byte destination, byte[] characteristics, uint characteristicsLength);
 
         /// <summary>
         ///   Downloads the finger characteristics from specified <c>CharBuffer</c>.
@@ -247,7 +247,7 @@ namespace ZfmSdk
         ///   <c>True</c> if the download was successful or <c>False</c> otherwise.
         /// </returns>
         [DllImport("Zfm.dll", EntryPoint = "ZfmUpChar", CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool UpChar(ZfmCharBuffer charBuffer, byte[] characteristics, ref ulong characteristicsLength);
+        public static extern bool UpChar(ZfmCharBuffer charBuffer, byte[] characteristics, ref uint characteristicsLength);
 
         /// <summary>
         ///   Uploads a fingerprint image to <c>ImageBuffer</c>.
@@ -328,13 +328,13 @@ namespace ZfmSdk
         ///   Sets the sensor password.
         /// </summary>
         [DllImport("Zfm.dll", EntryPoint = "ZfmSetAddr", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void SetAddr(ulong newAddress);
+        public static extern void SetAddr(uint newAddress);
 
         /// <summary>
         ///   Sets the sensor address.
         /// </summary>
         [DllImport("Zfm.dll", EntryPoint = "ZfmSetPwd", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void SetPwd(ulong newPassword);
+        public static extern void SetPwd(uint newPassword);
 
         /// <summary>
         ///   Gets the last error code.
