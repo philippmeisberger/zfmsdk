@@ -247,7 +247,7 @@ namespace ZfmSdk
         ///   <c>True</c> if the download was successful or <c>False</c> otherwise.
         /// </returns>
         [DllImport("Zfm.dll", EntryPoint = "ZfmUpChar", CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool UpChar(ZfmCharBuffer charBuffer, ref byte[] characteristics, ref ulong characteristicsLength);
+        public static extern bool UpChar(ZfmCharBuffer charBuffer, byte[] characteristics, ref ulong characteristicsLength);
 
         /// <summary>
         ///   Uploads a fingerprint image to <c>ImageBuffer</c>.
@@ -294,7 +294,7 @@ namespace ZfmSdk
         ///   <c>True</c> if the notepad was successful read or <c>False</c> otherwise.
         /// </returns>
         [DllImport("Zfm.dll", EntryPoint = "ZfmReadNotepad", CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool ReadNotepad(byte page, ref byte[] data, ref byte dataLength);
+        public static extern bool ReadNotepad(byte page, byte[] data, ref byte dataLength);
 
         /// <summary>
         ///   Writes specified data to a given ZFM notepad page.
