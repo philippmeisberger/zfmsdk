@@ -45,10 +45,10 @@ void ZfmUnInitialize();
 ///   Tries to establish the connection to the fingerprint sensor. If
 ///   successful the password is verified.
 /// </summary>
-/// <param name="APort">
+/// <param name="port">
 ///   The used serial port.
 /// </param>
-/// <param name="ABaudRate">
+/// <param name="baudRate">
 ///   Optional: The used baud rate.
 /// </param>
 /// <exception>

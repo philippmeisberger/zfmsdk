@@ -430,7 +430,7 @@ begin
     FSensor := TZfmSensor.Create(SensorAddress, SensorPassword);
 
   try
-    FSensor.Connect({$IFDEF MESWINDOWS}'COM'{$ELSE}'/dev/ttyUSB'{$ENDIF}+ IntToStr(seComPort.Value), StrToInt(cbxBaudRate.Text));
+    FSensor.Connect({$IFDEF MSWINDOWS}'COM'{$ELSE}'/dev/ttyUSB'{$ENDIF}+ IntToStr(seComPort.Value), StrToInt(cbxBaudRate.Text));
 
   except
     on E: Exception do
