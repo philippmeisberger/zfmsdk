@@ -2,12 +2,12 @@ object Main: TMain
   Left = 345
   Height = 354
   Top = 136
-  Width = 379
+  Width = 384
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'ZFM Manager'
   ClientHeight = 354
-  ClientWidth = 379
+  ClientWidth = 384
   Color = clBtnFace
   Font.Color = clWindowText
   Font.Height = -11
@@ -21,17 +21,17 @@ object Main: TMain
     Left = 8
     Height = 216
     Top = 8
-    Width = 161
+    Width = 166
     Anchors = [akTop, akLeft, akRight]
     Caption = 'Connection'
-    ClientHeight = 201
-    ClientWidth = 157
+    ClientHeight = 198
+    ClientWidth = 162
     TabOrder = 2
     object lBaudrate: TLabel
       Left = 81
       Height = 13
       Top = 16
-      Width = 52
+      Width = 44
       Caption = 'Baudrate'
       ParentColor = False
     end
@@ -39,16 +39,16 @@ object Main: TMain
       Left = 16
       Height = 13
       Top = 16
-      Width = 23
+      Width = 20
       Caption = 'Port'
       ParentColor = False
     end
     object cbxBaudrate: TComboBox
       Left = 81
-      Height = 23
+      Height = 21
       Top = 35
       Width = 65
-      ItemHeight = 0
+      ItemHeight = 13
       ItemIndex = 3
       Items.Strings = (
         '9600'
@@ -73,7 +73,7 @@ object Main: TMain
     end
     object eSensorAddress: TLabeledEdit
       Left = 16
-      Height = 23
+      Height = 21
       Top = 79
       Width = 130
       EditLabel.AnchorSideLeft.Control = eSensorAddress
@@ -92,7 +92,7 @@ object Main: TMain
     end
     object eSensorPassword: TLabeledEdit
       Left = 16
-      Height = 23
+      Height = 21
       Top = 123
       Width = 130
       EditLabel.AnchorSideLeft.Control = eSensorPassword
@@ -111,11 +111,11 @@ object Main: TMain
     end
     object cbxPacketLength: TComboBox
       Left = 16
-      Height = 23
+      Height = 21
       Top = 168
       Width = 128
       DropDownCount = 4
-      ItemHeight = 0
+      ItemHeight = 13
       ItemIndex = 2
       Items.Strings = (
         '32'
@@ -131,18 +131,18 @@ object Main: TMain
       Left = 16
       Height = 13
       Top = 152
-      Width = 76
+      Width = 65
       Caption = 'Packet length'
       ParentColor = False
     end
   end
   object gbTemplates: TGroupBox
-    Left = 175
+    Left = 178
     Height = 217
-    Top = 7
+    Top = 8
     Width = 196
     Caption = 'Database'
-    ClientHeight = 202
+    ClientHeight = 199
     ClientWidth = 192
     TabOrder = 3
     object bAdd: TButton
@@ -158,11 +158,10 @@ object Main: TMain
       Left = 16
       Height = 183
       Top = 9
-      Width = 75
+      Width = 80
       ItemHeight = 0
       ScrollWidth = 73
       TabOrder = 0
-      TopIndex = -1
     end
     object bRemove: TButton
       Left = 104
@@ -221,7 +220,7 @@ object Main: TMain
     TabOrder = 0
   end
   object bClose: TButton
-    Left = 196
+    Left = 199
     Height = 37
     Top = 309
     Width = 175
@@ -234,17 +233,16 @@ object Main: TMain
     Left = 8
     Height = 58
     Top = 245
-    Width = 363
+    Width = 366
     ItemHeight = 0
     ScrollWidth = 361
     TabOrder = 4
-    TopIndex = -1
   end
   object ProgressBar: TProgressBar
     Left = 8
     Height = 11
     Top = 232
-    Width = 363
+    Width = 366
     Smooth = True
     TabOrder = 5
   end
