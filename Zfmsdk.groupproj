@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{80D94B8E-74F2-44B3-8FA6-C0CCF1B56D96}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="lib\Zfm.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Zfm">
+        <MSBuild Projects="lib\Zfm.dproj"/>
+    </Target>
+    <Target Name="Zfm:Clean">
+        <MSBuild Projects="lib\Zfm.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Zfm:Make">
+        <MSBuild Projects="lib\Zfm.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Zfm"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Zfm:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Zfm:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

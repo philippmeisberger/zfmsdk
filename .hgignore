@@ -1,0 +1,25 @@
+syntax: glob
+BACKUP\**
+__history
+**.exe
+**.rsm
+**.db
+**.dll
+**.dcu
+**.stat
+**.identcache
+**.pas.orig
+**.dproj.local
+**.local
+**.tvsconfig
+**.orig
+**.dres
+**.mes
+**.drc
+**.map
+**.a
+**.obj
+**.o
+**.ppu
+**.bak
+**.compiled
