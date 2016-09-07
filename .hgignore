@@ -23,3 +23,8 @@ __history
 **.ppu
 **.bak
 **.compiled
+obj
+.vs
+**.config
+**.lrs
+**.pdb
