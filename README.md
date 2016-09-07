@@ -11,9 +11,9 @@ ZFM SDK can be used out of native Delphi applications created by Rad Studio and 
 Samples
 -------
 
-There are two samples (Lazarus) attached that should explain the usage of the library:
-- The "sample" folder contains a non-graphical (console) application
-- The "gui" folder contains a full featured graphical application
+There are three samples attached that should explain the usage of the project:
+- The "sample" folder contains two equivalent non-graphical console applications for Lazarus and Visual Studio (C#) which use the shared library
+- The "gui" folder contains a full featured graphical Lazarus application which uses the native Delphi unit
 
 Questions and suggestions
 -------------------------
