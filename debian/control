@@ -1,0 +1,18 @@
+Source: libzfm
+Maintainer: Philipp Meisberger <team@pm-codeworks.de>
+Section: libs
+Priority: extra
+Standards-Version: 3.9.6
+Build-Depends: lazarus, debhelper (>= 9)
+Homepage: http://www.pm-codeworks.de/zfmsdk.html
+#Vcs-Git: git://github.com/philippmeisberger/zfmsdk.git
+
+Package: libzfm
+Architecture: any
+Pre-Depends: multiarch-support
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Library for using various ZhianTec fingerprint modules (ZFM)
+ The 'libzfm' library implements functions to manage ZhianTec fingerprint
+ modules.
+ .
+ This package contains the shared library.

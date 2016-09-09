@@ -1,17 +1,13 @@
 syntax: glob
 BACKUP\**
-__history
+backup
+lib/lib
 **.exe
 **.rsm
 **.db
 **.dll
+**.so
 **.dcu
-**.stat
-**.identcache
-**.pas.orig
-**.dproj.local
-**.local
-**.tvsconfig
 **.orig
 **.dres
 **.mes
@@ -20,9 +16,12 @@ __history
 **.a
 **.obj
 **.o
+**.or
 **.ppu
 **.bak
 **.compiled
+
+# Visual Studio files
 obj
 .vs
 **.config

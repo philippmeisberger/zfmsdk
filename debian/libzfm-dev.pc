@@ -1,0 +1,10 @@
+prefix=/usr
+exec_prefix=/usr
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libzfm
+Description: Library for using various ZhianTec fingerprint modules (ZFM)
+Version: 1.0.0
+Libs: -L${libdir}
+Cflags: -I${includedir}
