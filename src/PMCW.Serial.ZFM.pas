@@ -8,7 +8,7 @@
 
 unit PMCW.Serial.ZFM;
 
-{$IFDEF FPC}{$mode delphi}{$ENDIF}
+{$IFDEF FPC}{$mode delphiunicode}{$ENDIF}
 
 interface
 
@@ -1137,7 +1137,7 @@ begin
 
     // Download was not canceled?
     if Result then
-      Image.SaveToFile(ChangeFileExt(AFileName, '.bmp'));
+      Image.SaveToFile(ChangeFileExt(string(AFileName), string('.bmp')));
 
   finally
     Image.Free;

@@ -4,16 +4,25 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="1">
+    <Units Count="2">
       <Unit0>
-        <Filename Value="Zfm.dpr"/>
+        <Filename Value="Zfm.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="3" Y="5"/>
-        <UsageCount Value="20"/>
+        <TopLine Value="11"/>
+        <CursorPos X="33" Y="11"/>
+        <UsageCount Value="21"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
+      <Unit1>
+        <Filename Value="Zfm.pas"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="48" Y="6"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit1>
     </Units>
   </ProjectSession>
 </CONFIG>

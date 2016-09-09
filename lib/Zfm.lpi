@@ -24,7 +24,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="12"/>
+      <BuildNr Value="17"/>
       <StringTable CompanyName="PM Code Works" ProductVersion=""/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -45,7 +45,7 @@
     </RequiredPackages>
     <Units Count="1">
       <Unit0>
-        <Filename Value="Zfm.dpr"/>
+        <Filename Value="Zfm.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
     </Units>
@@ -67,7 +67,6 @@
         <CStyleOperator Value="False"/>
         <AllowLabel Value="False"/>
         <CPPInline Value="False"/>
-        <UseAnsiStrings Value="False"/>
       </SyntaxOptions>
     </Parsing>
     <CodeGeneration>

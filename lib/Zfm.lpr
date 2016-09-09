@@ -8,7 +8,7 @@
 
 library Zfm;
 
-{$IFDEF FPC}{$mode delphi}{$ENDIF}
+{$IFDEF FPC}{$mode delphiunicode}{$ENDIF}
 
 uses
   SysUtils,
@@ -30,7 +30,7 @@ begin
   FreeAndNil(FSensor);
 end;
 
-procedure ZfmConnect(APort: PWideChar; ABaudrate: UInt32 = 57600); cdecl;
+procedure ZfmConnect(APort: PChar; ABaudrate: UInt32 = 57600); cdecl;
 begin
   FSensor.Connect(APort, ABaudrate);
 end;
@@ -175,12 +175,12 @@ begin
   Result := True;
 end;
 
-function ZfmDownImage(AFileName: PWideChar): Boolean; cdecl;
+function ZfmDownImage(AFileName: PChar): Boolean; cdecl;
 begin
   Result := FSensor.UploadImage(AFileName);
 end;
 
-function ZfmUpImage(AFileName: PWideChar): Boolean; cdecl;
+function ZfmUpImage(AFileName: PChar): Boolean; cdecl;
 begin
   Result := FSensor.DownloadImage(AFileName);
 end;

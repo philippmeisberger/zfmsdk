@@ -8,7 +8,7 @@
 
 unit Zfm;
 
-{$IFDEF FPC}{$mode delphi}{$ENDIF}
+{$IFDEF FPC}{$mode delphiunicode}{$ENDIF}
 
 interface
 
@@ -61,7 +61,7 @@ procedure ZfmUnInitialize(); cdecl;
 ///   <c>EZfmException</c> when the password is wrong.
 ///   <c>ESerialException</c> when the port was not found.
 /// </exception>
-procedure ZfmConnect(APort: PWideChar; ABaudrate: UInt32 = 57600); cdecl;
+procedure ZfmConnect(APort: PChar; ABaudrate: UInt32 = 57600); cdecl;
 
 /// <summary>
 ///   Clears the complete template database.
@@ -243,7 +243,7 @@ function ZfmUpChar(ACharBuffer: TZfmCharBuffer; ACharacteristics: PByte;
 /// <returns>
 ///   <c>True</c> if the upload was not canceled or <c>False</c> otherwise.
 /// </returns>
-function ZfmDownImage(AFileName: PWideChar): Boolean; cdecl;
+function ZfmDownImage(AFileName: PChar): Boolean; cdecl;
 
 /// <summary>
 ///   Downloads the image of a finger in <c>ImageBuffer</c> to host computer
@@ -255,7 +255,7 @@ function ZfmDownImage(AFileName: PWideChar): Boolean; cdecl;
 /// <returns>
 ///   <c>True</c> if the download was successful or <c>False</c> otherwise.
 /// </returns>
-function ZfmUpImage(AFileName: PWideChar): Boolean; cdecl;
+function ZfmUpImage(AFileName: PChar): Boolean; cdecl;
 
 /// <summary>
 ///   Reads data from a given ZFM notepad page.

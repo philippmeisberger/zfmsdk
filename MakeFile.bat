@@ -1,1 +1,0 @@
-..\..\Release\nmake build

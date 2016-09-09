@@ -8,7 +8,7 @@
 
 unit PMCW.Serial;
 
-{$IFDEF FPC}{$mode delphi}{$ENDIF}
+{$IFDEF FPC}{$mode delphiunicode}{$ENDIF}
 
 interface
 
@@ -796,7 +796,7 @@ begin
 
   FSerialPort := APort;
 {$IFDEF MSWINDOWS}
-  FSerial := CreateFile(PChar(FSerialPort), GENERIC_READ OR GENERIC_WRITE,
+  FSerial := CreateFileW(PChar(FSerialPort), GENERIC_READ OR GENERIC_WRITE,
     0, nil, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL or FILE_FLAG_OVERLAPPED, 0);
 {$ELSE}
   FSerial := FpOpen(FSerialPort, O_RDWR or O_SYNC);
