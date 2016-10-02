@@ -1,0 +1,38 @@
+PROJECTNAME=Zfm
+WIN32DIR=bin\Win32
+WIN32DLL=$(WIN32DIR)\Release\$(PROJECTNAME).dll
+WIN64DIR=bin\Win64
+WIN64DLL=$(WIN64DIR)\Release\$(PROJECTNAME).dll
+CERTSHA1=A9A273A222A5DD3ED9EC2F46232AAD8E087EA4ED
+MSBUILD=C:\Windows\Microsoft.NET\Framework\v3.5\MSBUILD.exe
+ZIP="C:\Program Files (x86)\GnuWin32\bin\zip.exe"
+SIGNTOOL="C:\Program Files (x86)\Windows Kits\10\bin\x64\signtool.exe"
+SIGN=$(SIGNTOOL) sign /v /sha1 $(CERTSHA1) /tr http://timestamp.globalsign.com/scripts/timstamp.dll /td SHA256 /fd SHA256
+
+build: win32 win64
+
+source:
+	hg archive -t zip $(PROJECTNAME)-src.zip
+
+win32: lib\$(PROJECTNAME).dproj
+	IF NOT EXIST lib\$(PROJECTNAME).dpr COPY lib\$(PROJECTNAME).lpr lib\$(PROJECTNAME).dpr
+	SET BDS=C:\Program Files (x86)\Embarcadero\Studio\16.0
+	$(MSBUILD) /p:Config=Release /property:Platform=Win32 lib\$(PROJECTNAME).dproj
+
+win64: lib\$(PROJECTNAME).dproj
+	IF NOT EXIST lib\$(PROJECTNAME).dpr COPY lib\$(PROJECTNAME).lpr lib\$(PROJECTNAME).dpr
+	SET BDS=C:\Program Files (x86)\Embarcadero\Studio\16.0
+	$(MSBUILD) /p:Config=Release /property:Platform=Win64 lib\$(PROJECTNAME).dproj
+
+sign: $(WIN32DLL) $(WIN64DLL)
+	$(SIGN) $(WIN32DLL) $(WIN64DLL)
+
+binary:
+	$(ZIP) -9 $(PROJECTNAME).zip $(WIN32DLL) $(WIN64DLL) lib\$(PROJECTNAME).cs lib\$(PROJECTNAME).h lib\$(PROJECTNAME).pas COPYING.txt LICENCE.txt
+
+release: win32 win64 sign binary source
+
+clean:
+	DEL lib\$(PROJECTNAME).res
+	IF EXIST $(WIN32DLL) DEL $(WIN32DLL)
+	IF EXIST $(WIN64DLL) DEL $(WIN64DLL)

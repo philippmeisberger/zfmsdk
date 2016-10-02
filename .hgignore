@@ -1,6 +1,7 @@
 syntax: glob
 BACKUP\**
 backup
+__history
 lib/lib
 **.exe
 **.rsm
@@ -20,6 +21,10 @@ lib/lib
 **.ppu
 **.bak
 **.compiled
+**.identcache
+**.stat
+**.local
+**.zip
 
 # Visual Studio files
 obj
