@@ -1639,7 +1639,7 @@ begin
       // Index not in use?
       if not Indices[i] then
       begin
-        Index := i;
+        Index := (Page * Length(Indices)) + i;
         Break;
       end;  //of begin
   end;  //of for
