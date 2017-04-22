@@ -1,4 +1,4 @@
-libzfm.so libzfm #MINVER#
+libzfm.so.1 libzfm #MINVER#
  ZfmConnect@Base 1.0.0
  ZfmDeletChar@Base 1.0.0
  ZfmDownChar@Base 1.0.0

@@ -16,3 +16,13 @@ Description: Library for using various ZhianTec fingerprint modules (ZFM)
  modules.
  .
  This package contains the shared library.
+
+Package: libzfm-dev
+Section: libdevel
+Architecture: any
+Depends: libzfm (= ${binary:Version}), ${misc:Depends}
+Description: Library for using various ZhianTec fingerprint modules (ZFM)
+ The 'libzfm' library implements functions to manage ZhianTec fingerprint
+ modules.
+ .
+ This package contains the development files.

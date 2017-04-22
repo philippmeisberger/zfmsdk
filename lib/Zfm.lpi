@@ -54,7 +54,7 @@
     <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
-      <Filename Value="..\bin\$(TargetOS)\Zfm"/>
+      <Filename Value="..\bin\$(TargetOS)-$(TargetCPU)\Zfm"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>

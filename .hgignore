@@ -1,8 +1,9 @@
 syntax: glob
-BACKUP\**
+BACKUP
 backup
 __history
 lib/lib
+gui/lib
 **.exe
 **.rsm
 **.db
@@ -19,6 +20,7 @@ lib/lib
 **.o
 **.or
 **.ppu
+**.lps
 **.bak
 **.compiled
 **.identcache
