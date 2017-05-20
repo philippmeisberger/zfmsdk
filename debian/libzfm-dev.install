@@ -1,1 +1,3 @@
-lib/Zfm.h usr/include/
+usr/include/zfm.h
+usr/lib/*/libzfm.so
+usr/lib/*/pkgconfig/zfm.pc

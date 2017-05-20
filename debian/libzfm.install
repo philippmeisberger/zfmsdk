@@ -1,1 +1,1 @@
-bin/*/lib*.so usr/lib/
+lib/*/lib*.so

@@ -1,10 +1,46 @@
 #!/usr/bin/make -f
 
+# Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
-export DEB_BUILD_HARDENING=1
+
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+DEB_HOST_GNU_CPU ?= $(shell dpkg-architecture -DEB_HOST_GNU_CPU)
 
 %:
 	dh $@
 
 build: lib/Zfm.lpr
 	lazbuild lib/Zfm.lpr
+
+install:
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+
+	install -d debian/tmp/lib/$(DEB_HOST_MULTIARCH) debian/tmp/usr/include debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig
+	install lib/zfm.h debian/tmp/usr/include/
+	cp lib/zfm.pc debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig/
+	install bin/$(DEB_HOST_GNU_CPU)-*/libzfm.so debian/tmp/lib/$(DEB_HOST_MULTIARCH)/
+	ln -sf /lib/$(DEB_HOST_MULTIARCH)/libzfm.so debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/libzfm.so.1
+	ln -sf /lib/$(DEB_HOST_MULTIARCH)/$(readlink debian/tmp/lib/$(DEB_HOST_MULTIARCH)/libzfm.so.1) debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/libzfm.so
+
+binary: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	dh_installdocs -s
+	dh_installexamples -s
+	dh_install -s
+	dh_installman -s
+	dh_lintian -s
+	dh_link -s
+	dh_strip -s
+	dh_compress -s
+	dh_fixperms -s
+	dh_makeshlibs
+	dh_shlibdeps
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
