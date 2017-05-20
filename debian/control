@@ -9,7 +9,8 @@ Homepage: http://www.pm-codeworks.de/zfmsdk.html
 
 Package: libzfm
 Architecture: any
-Pre-Depends: multiarch-support
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: Library for using various ZhianTec fingerprint modules (ZFM)
  The 'libzfm' library implements functions to manage ZhianTec fingerprint
@@ -20,6 +21,8 @@ Description: Library for using various ZhianTec fingerprint modules (ZFM)
 Package: libzfm-dev
 Section: libdevel
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: libzfm (= ${binary:Version}), ${misc:Depends}
 Description: Library for using various ZhianTec fingerprint modules (ZFM)
  The 'libzfm' library implements functions to manage ZhianTec fingerprint
