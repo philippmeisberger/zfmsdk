@@ -26,7 +26,7 @@ Add group "dialout" for each user which should be able to use the ZFM
 Troubleshooting
 ---------------
 
-When you get the message `The fingerprint sensor could not be initialized!` there are multiple reasons for this issue:
+When you get messages like `Fingerprint sensor could not be found` or `The recieved packet header is invalid!` there are multiple reasons for these issues:
 
 - The sensor was not found at given port
 - The USB-TTL converter is not working properly
