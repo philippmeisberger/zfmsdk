@@ -2,8 +2,7 @@ syntax: glob
 BACKUP
 backup
 __history
-lib/lib
-gui/lib
+bin
 **.exe
 **.rsm
 **.db
