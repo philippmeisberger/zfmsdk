@@ -1,9 +1,10 @@
 program Sample;
 
+{$IFDEF MSWINDOWS}
 {$APPTYPE CONSOLE}
 
 {$R *.res}
-
+{$ENDIF}
 uses
   SysUtils,
   Zfm;
