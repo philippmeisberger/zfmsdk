@@ -6,6 +6,8 @@
 //                                                                         //
 // *********************************************************************** //
 
+#pragma once
+
 #if defined ZFM_EXPORT
 #define ZFMSDK __declspec(dllexport)
 #else
@@ -15,7 +17,7 @@
 /// <summary>
 ///   Possible ZFM CharBuffers
 /// </summary>
-typedef enum
+typedef enum _ZfmCharBuffer
 {
     /// <summary>
     ///   CharBuffer 1
@@ -27,6 +29,10 @@ typedef enum
     /// </summary>
     CharBuffer2 = 2
 } ZfmCharBuffer;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /// <summary>
 ///   Initializes the ZFM.
@@ -318,3 +324,10 @@ ZFMSDK void ZfmSetPwd(unsigned long newPassword);
 ///   The last error.
 /// </returns>
 ZFMSDK unsigned char ZfmGetLastError();
+
+#ifdef __cplusplus
+}
+
+#endif
+
+#pragma endregion
