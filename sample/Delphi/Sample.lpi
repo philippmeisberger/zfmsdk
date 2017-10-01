@@ -44,7 +44,7 @@
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
       <Libraries Value="..\..\bin\$(TargetCPU)-$(TargetOS)"/>
-      <OtherUnitFiles Value="..\..\lib"/>
+      <OtherUnitFiles Value="..\..\include"/>
       <UnitOutputDirectory Value="..\..\bin\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Parsing>
