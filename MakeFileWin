@@ -43,7 +43,8 @@ opm: packages\zfmsdk.lpk
 	COPY src zfmsdk\src
 	MKDIR zfmsdk\examples\gui
 	COPY examples\gui zfmsdk\examples\gui
-	COPY README.md zfmsdk
-	COPY COPYING.txt zfmsdk
+	MKDIR zfmsdk\packages
 	COPY packages\zfmsdk.lpk zfmsdk\packages
 	COPY packages\zfmsdk.pas zfmsdk\packages
+	COPY README.md zfmsdk
+	COPY COPYING.txt zfmsdk
