@@ -23,6 +23,11 @@ Add group "dialout" for each user which should be able to use the ZFM
     ~# usermod -a -G dialout <username>
     ~# reboot
 
+Installation
+------------
+
+ZFM SDK is available in [Lazarus Online Package Manager](http://wiki.freepascal.org/Online_Package_Manager). To use the library in a project just set dependency to ZFM SDK package in project inspector.
+
 Troubleshooting
 ---------------
 
