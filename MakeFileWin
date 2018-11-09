@@ -37,3 +37,13 @@ clean:
 	SET BDS=$(BDSDIR)
 	$(MSBUILD) /t:clean /p:Config=Release /p:Platform=Win32 "src\$(PROJECTNAME).dproj"
 	$(MSBUILD) /t:clean /p:Config=Release /p:Platform=Win64 "src\$(PROJECTNAME).dproj"
+
+opm: packages\zfmsdk.lpk
+	MKDIR zfmsdk\src
+	COPY src zfmsdk\src
+	MKDIR zfmsdk\examples\gui
+	COPY examples\gui zfmsdk\examples\gui
+	COPY README.md zfmsdk
+	COPY COPYING.txt zfmsdk
+	COPY packages\zfmsdk.lpk zfmsdk\packages
+	COPY packages\zfmsdk.pas zfmsdk\packages
