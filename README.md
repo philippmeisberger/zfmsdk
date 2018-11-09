@@ -6,14 +6,7 @@ ZFM SDK is a Delphi written library for using various ZhianTec Fingerprint Modul
 Integration
 -----------
 
-ZFM SDK can be used out of native Delphi applications created by Rad Studio and Lazarus as a regular Delphi unit. For other compiled languages like the C family ZFM SDK can also be used as shared library (see "lib" folder). The library has to be compiled using Lazarus IDE. Just open the Zfm.lpi from the "lib" folder out of Lazarus and compile it. The library file is created in the "bin" folder. The required header files are located inside the "include" folder.
-
-Samples
--------
-
-There are three samples attached that should explain the usage of the project:
-- The "sample" folder contains two equivalent non-graphical console applications for Lazarus and Visual Studio (C#) which use the shared library
-- The "gui" folder contains a full featured graphical Lazarus application which uses the native Delphi unit
+ZFM SDK can be used out of native Delphi applications created by Rad Studio and Lazarus as a regular Delphi unit. For other compiled languages like the C family ZFM SDK can also be used as shared library (see "lib" folder). The library has to be compiled using Lazarus IDE. Just open the Zfm.lpi from the "lib" folder out of Lazarus and compile it. The library file is created in the "bin" folder. The required header files are located inside the "Include" folder.
 
 Linux setup
 -----------

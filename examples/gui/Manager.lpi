@@ -57,8 +57,8 @@
     <Version Value="11"/>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="../src"/>
-      <UnitOutputDirectory Value="../bin/$(TargetCPU)-$(TargetOS)"/>
+      <OtherUnitFiles Value="../../src"/>
+      <UnitOutputDirectory Value="bin/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Parsing>
       <SyntaxOptions>

@@ -43,9 +43,9 @@
     <PathDelim Value="\"/>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <Libraries Value="..\..\bin\$(TargetCPU)-$(TargetOS)"/>
-      <OtherUnitFiles Value="..\..\include"/>
-      <UnitOutputDirectory Value="..\..\bin\$(TargetCPU)-$(TargetOS)"/>
+      <Libraries Value="..\..\..\bin\$(TargetCPU)-$(TargetOS)"/>
+      <OtherUnitFiles Value="..\..\..\Include"/>
+      <UnitOutputDirectory Value="..\..\..\bin\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Parsing>
       <SyntaxOptions>
