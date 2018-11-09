@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="4">
+    <PathDelim Value="\"/>
+    <Name Value="zfmsdk"/>
+    <Type Value="RunTimeOnly"/>
+    <Author Value="Philipp Meisberger"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <OtherUnitFiles Value="..\src"/>
+        <UnitOutputDirectory Value="bin\$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+      <Parsing>
+        <SyntaxOptions>
+          <SyntaxMode Value="Delphi"/>
+        </SyntaxOptions>
+      </Parsing>
+    </CompilerOptions>
+    <Description Value="ZFM SDK is a Delphi written library for using various ZhianTec Fingerprint Modules (ZFM) under Windows and Linux operating systems."/>
+    <License Value="Copyright (C) 2011 Philipp Meisberger &lt;team@pm-codeworks.de>
+
+This Program may be used by anyone in accordance with the terms of the
+German Free Software License.
+
+The License may be obtained under &lt;http://www.d-fsl.org>."/>
+    <Version Major="1"/>
+    <Files Count="2">
+      <Item1>
+        <Filename Value="..\src\PMCW.Serial.pas"/>
+        <UnitName Value="PMCW.Serial"/>
+      </Item1>
+      <Item2>
+        <Filename Value="..\src\PMCW.Serial.ZFM.pas"/>
+        <UnitName Value="PMCW.Serial.ZFM"/>
+      </Item2>
+    </Files>
+    <RequiredPkgs Count="2">
+      <Item1>
+        <PackageName Value="LCLBase"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="FCL"/>
+      </Item2>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>
