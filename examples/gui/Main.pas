@@ -377,6 +377,8 @@ begin
       Inc(Index);
     end;  //of for
   end;  //of for
+
+  cbxPacketLength.ItemIndex := Ord(AZfmSensor.PacketLength);
 end;
 
 procedure TMain.ReadImage(ACaller: TThread; const AZfmSensor: TZfmSensor);
